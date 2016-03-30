@@ -8,8 +8,6 @@ rvm:
 before_install:
     - ./travis_setup.bash 
     - env | grep AWS
-    - ls -la ~/.aws
-    - cat ~/.aws/credentials
 install: 
     - gem install 'test-kitchen' --version '>= 1.2'
     - gem install 'kitchen-ec2'
