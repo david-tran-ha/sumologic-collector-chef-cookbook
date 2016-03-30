@@ -16,5 +16,5 @@ install:
     - gem install rspec 
     - gem install foodcritic 
 script:
-    - travis_wait 45 rake integration:ec2 
+    - travis_wait 25 rake integration:ec2 
 
