@@ -8,11 +8,12 @@ rvm:
 before_install:
     - ./travis_setup.bash 
 install: 
+    - gem install 'test-kitchen' --version '>= 1.2'
+    - gem install 'kitchen-ec2'
+    - gem install 'berkshelf' --version '>= 3.1'
     - gem install rubocop 
     - gem install rspec 
     - gem install foodcritic 
-    - gem install 'test-kitchen' --version '>= 1.2'
-    - gem install 'kitchen-ec2'
 script:
     - travis_wait 45 rake integration:ec2 
 
