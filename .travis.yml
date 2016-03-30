@@ -7,6 +7,7 @@ rvm:
     - 2.1.0
 before_install:
     - ./travis_setup.bash 
+    - env | grep AWS
 install: 
     - gem install 'test-kitchen' --version '>= 1.2'
     - gem install 'kitchen-ec2'
