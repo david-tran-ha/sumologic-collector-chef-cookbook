@@ -1,0 +1,17 @@
+language: ruby
+env:
+  global:
+  - secure: "OFmfcY7sMMh8tQLqkZ/ctMQ8wnFPY3WEsUo5AMmLk1kc/s7DTIpqaQ+Nmkm2yJg+CrZVQRbZGWTBKqotM5ZH29RGA/vOcWoMnliL91oMMnAjwrxL7fzEroCLcNzabbfPYtrSiOdIyH+6JfDFxaukTfbi6lix69EeOukqv1OycVv0b2YRWjjS4l9Z+1/tkPFvkJNrQ2GIlJK/RR86oDZRTGDCNiJ2LZB5Gh/XJw5G4rn3KHj5CyOqpx2DOG2bF/c8wWNtfh7hfW1xmOS7jbHpu+YYNyC7sKDw4Jg2EHfa8gS7TFeJEfTKg1M3fP8tFJ2yn6nwVso7ueta85tNMvF1t2S7+98cA4tFWN/r7ADqlwszFwO6sMJZwvvGf81rYxtYlVVK0EJ7Iyecb/+vaP5h/5/l7zZzmtnxCBamvNugBKPWysYpnMziCVrzKBBQg3awL6gJjop4hADJp4u0Ar+75qgudoCeTkOZQjVjMh61kRhtbv3ywBme2+eQXGrnCeVgq1T9ZeUNhJEw4wTlVVEM0vTTwSewM1QjpGhOo4hPTgivcuq9qxsRP24EHv87uoI+BZ133jBomceZM/vBfyv+oNVrfMKyj50fvxOEN+vFsxXo9hVKCt9ytWZ4QA2rmTbDcV5ZqFM6EAJc8MNNj/nzLs+1OGn7wbMqdXiYk+j/+0o="
+  - KITCHEN_YAML=.kitchen.ec2.yml   
+rvm:
+    - 2.1.0
+before_install:
+    - ./travis_setup.bash 
+install: 
+    - gem install rubocop 
+    - gem install rspec 
+    - gem install foodcritic 
+    - gem install kitchen
+script:
+    - travis_wait 15 rake test  
+
