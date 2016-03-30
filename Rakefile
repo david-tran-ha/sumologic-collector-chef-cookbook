@@ -1,4 +1,6 @@
 gem 'rubocop', '>=0.33.0'
+gem 'test-kitchen', '>= 1.2'
+gem 'kitchen-ec2', github: 'test-kitchen/kitchen-ec2'
 
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
@@ -45,6 +47,23 @@ namespace :integration do
     config.instances.each do |instance|
       instance.test(:always)
     end
+  end
+
+  task :ec2Params do
+	puts 'This will print all parameters used by Test Kitchen:'
+	puts 'This is the PATH environment: ', ENV['PATH'] 
+	puts 'AWS_SSH_KEY: ', ENV['AWS_SSH_KEY']
+	puts 'AWS_SECURITY_GROUPS: ', ENV['AWS_SECURITY_GROUPS']
+	puts 'AWS_REGION: ', ENV['AWS_REGION']
+	puts 'AWS_AVAILABILITY_ZONE: ', ENV['AWS_AVAILABILITY_ZONE']
+	puts 'AWS_SUBNET: ', ENV['AWS_SUBNET']
+	puts 'AWS_USERNAME: ', ENV['AWS_USERNAME']
+	puts 'AWS_PLATFORM_NAME: ', ENV['AWS_PLATFORM_NAME']
+	puts 'AWS_AMI_ID: ', ENV['AWS_AMI_ID']
+	puts 'INSTANCE_SIZE: ', ENV['INSTANCE_SIZE']
+	puts 'USER_DATA_PATH: ', ENV['USER_DATA_PATH']
+	puts 'SUMO_ACCESS_ID: ', ENV['SUMO_ACCESS_ID']
+	puts 'SUMO_ACCESS_KEY: ', ENV['SUMO_ACCESS_KEY']
   end
 end
 

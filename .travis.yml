@@ -11,7 +11,8 @@ install:
     - gem install rubocop 
     - gem install rspec 
     - gem install foodcritic 
-    - gem install kitchen
+    - gem install 'test-kitchen' --version '>= 1.2'
+    - gem install 'kitchen-ec2'
 script:
     - travis_wait 45 rake integration:ec2 
 
