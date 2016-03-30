@@ -7,8 +7,7 @@ driver:
   require_chef_omnibus: true
   subnet_id: <%= ENV['AWS_SUBNET'] %>
   instance_type: <%= ENV['INSTANCE_SIZE'] %>
-  associate_public_ip: false
-  interface: private
+  associate_public_ip: true 
   user_data: <%= ENV['USER_DATA_PATH'] %>
   tags: {
     "Name"      : "TravisCI",
