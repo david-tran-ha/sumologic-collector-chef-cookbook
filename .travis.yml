@@ -13,5 +13,5 @@ install:
     - gem install foodcritic 
     - gem install kitchen
 script:
-    - travis_wait 35 rake test  
+    - travis_wait 35 rake ec2 
 
